@@ -20,26 +20,25 @@ const illustration = {
 };
 
 const greeting = {
-  username: "Omer Yasir Kucuk",
+  username: "OYK",
   title: "Hi all, I'm Omer",
   subTitle: emoji(
-    "A passionate Full Stack Software Developer 🚀 having an experience of building Web and Mobile applications with JavaScript / Reactjs / Nodejs / React Native and some other cool libraries and frameworks."
+    "I’m working as a Data Analyst at Migros - Mímeda, where I focus on analyzing customer behavior and automating reporting processes to drive data-informed strategies. 🚀 "
   ),
   resumeLink:
-    "https://drive.google.com/file/d/1ofFdKF_mqscH8WvXkSObnVvC9kK7Ldlu/view?usp=sharing", // Set to empty to hide the button
+    "hhttps://drive.google.com/file/d/10FrLyp8SDohr_0inZh3RlXv529KuYXSu/view?usp=sharing", // Set to empty to hide the button
   displayGreeting: true // Set false to hide this section, defaults to true
 };
 
 // Social Media Links
 
 const socialMediaLinks = {
-  github: "https://github.com/saadpasta",
-  linkedin: "https://www.linkedin.com/in/saadpasta/",
-  gmail: "saadpasta70@gmail.com",
-  gitlab: "https://gitlab.com/saadpasta",
-  facebook: "https://www.facebook.com/saad.pasta7",
-  medium: "https://medium.com/@saadpasta",
-  stackoverflow: "https://stackoverflow.com/users/10422806/saad-pasta",
+  github: "https://github.com/omeryasirkucuk",
+  linkedin: "https://www.linkedin.com/in/omeryasirkucuk/",
+  gmail: "omeryasirkucuk@gmail.com",
+  instagram: "https://www.instagram.com/meryasir",
+  medium: "https://medium.com/@omeryasirkucuk",
+  kaggle: "https://www.kaggle.com/omeryasirkucuk",
   // Instagram, Twitter and Kaggle are also supported in the links!
   // To customize icons and social links, tweak src/components/SocialMedia
   display: true // Set true to display this section, defaults to false
@@ -49,53 +48,19 @@ const socialMediaLinks = {
 
 const skillsSection = {
   title: "What I do",
-  subTitle: "CRAZY FULL STACK DEVELOPER WHO WANTS TO EXPLORE EVERY TECH STACK",
+  subTitle: "Driven by a passion for cloud and data engineering technologies, I continuously explore new tools to unlock data's potential and enhance business value.",
   skills: [
-    emoji(
-      "⚡ Develop highly interactive Front end / User Interfaces for your web and mobile applications"
-    ),
-    emoji("⚡ Progressive Web Applications ( PWA ) in normal and SPA Stacks"),
-    emoji(
-      "⚡ Integration of third party services such as Firebase/ AWS / Digital Ocean"
-    )
-  ],
+    emoji("⚡ Extract, clean, and process data from various sources using SQL, Python"),
+    emoji("⚡ Build and maintain ETL processes for extracting, transforming, and loading data from various sources"),
+    emoji("⚡ Integration of third-party services and cloud platforms such as AWS"),
+    emoji("⚡ Create interactive dashboards and reports using tools like Tableau, Power BI")
+  ]
+  ,
 
   /* Make Sure to include correct Font Awesome Classname to view your icon
 https://fontawesome.com/icons?d=gallery */
 
   softwareSkills: [
-    {
-      skillName: "html-5",
-      fontAwesomeClassname: "fab fa-html5"
-    },
-    {
-      skillName: "css3",
-      fontAwesomeClassname: "fab fa-css3-alt"
-    },
-    {
-      skillName: "sass",
-      fontAwesomeClassname: "fab fa-sass"
-    },
-    {
-      skillName: "JavaScript",
-      fontAwesomeClassname: "fab fa-js"
-    },
-    {
-      skillName: "reactjs",
-      fontAwesomeClassname: "fab fa-react"
-    },
-    {
-      skillName: "nodejs",
-      fontAwesomeClassname: "fab fa-node"
-    },
-    {
-      skillName: "swift",
-      fontAwesomeClassname: "fab fa-swift"
-    },
-    {
-      skillName: "npm",
-      fontAwesomeClassname: "fab fa-npm"
-    },
     {
       skillName: "sql-database",
       fontAwesomeClassname: "fas fa-database"
@@ -105,16 +70,16 @@ https://fontawesome.com/icons?d=gallery */
       fontAwesomeClassname: "fab fa-aws"
     },
     {
-      skillName: "firebase",
-      fontAwesomeClassname: "fas fa-fire"
-    },
-    {
       skillName: "python",
       fontAwesomeClassname: "fab fa-python"
     },
     {
       skillName: "docker",
       fontAwesomeClassname: "fab fa-docker"
+    },
+    {
+      skillName: "nosql",
+      fontAwesomeClassname: "fab fa-database"
     }
   ],
   display: true // Set false to hide this section, defaults to true
@@ -126,23 +91,21 @@ const educationInfo = {
   display: true, // Set false to hide this section, defaults to true
   schools: [
     {
-      schoolName: "Harvard University",
-      logo: require("./assets/images/harvardLogo.png"),
-      subHeader: "Master of Science in Computer Science",
-      duration: "September 2017 - April 2019",
-      desc: "Participated in the research of XXX and published 3 papers.",
+      schoolName: "Istanbul Technical University",
+      logo: require("./assets/images/itu-logo-white.png"),
+      subHeader: "Master of Science in Big Data & Business Analytics",
+      duration: "September 2023 - June 2025",
+      desc: "Master of Science Program with thesis that focus on data engineering and machine learning issues",
       descBullets: [
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit",
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit"
+        "Computer Vision, Big Data Techs, DB Management, Advances in DS, Math for ML"
       ]
     },
     {
-      schoolName: "Stanford University",
-      logo: require("./assets/images/stanfordLogo.png"),
-      subHeader: "Bachelor of Science in Computer Science",
-      duration: "September 2013 - April 2017",
-      desc: "Ranked top 10% in the program. Took courses about Software Engineering, Web Security, Operating Systems, ...",
-      descBullets: ["Lorem ipsum dolor sit amet, consectetur adipiscing elit"]
+      schoolName: "Istanbul Technical University",
+      logo: require("./assets/images/itu-logo-white.png"),
+      subHeader: "Civil Engineering Bachelor's Degree",
+      duration: "September 2013 - January 2019",
+      desc: "Apart from the network and business perspective I gained through my part-time work and internships during my education, it was a waste of time."
     }
   ]
 };
@@ -153,16 +116,12 @@ const techStack = {
   viewSkillBars: true, //Set it to true to show Proficiency Section
   experience: [
     {
-      Stack: "Frontend/Design", //Insert stack or technology you have experience in
+      Stack: "Analysis/Visualization/Reporting", //Insert stack or technology you have experience in
       progressPercentage: "90%" //Insert relative proficiency in percentage
     },
     {
-      Stack: "Backend",
+      Stack: "Public/Private Data Technologies",
       progressPercentage: "70%"
-    },
-    {
-      Stack: "Programming",
-      progressPercentage: "60%"
     }
   ],
   displayCodersrank: false // Set true to display codersrank badges section need to changes your username in src/containers/skillProgress/skillProgress.js:17:62, defaults to false
@@ -174,29 +133,37 @@ const workExperiences = {
   display: true, //Set it to true to show workExperiences Section
   experience: [
     {
-      role: "Software Engineer",
-      company: "Facebook",
-      companylogo: require("./assets/images/facebookLogo.png"),
-      date: "June 2018 – Present",
-      desc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+      role: "Data Analyst",
+      company: "Migros Media Data (Mimeda)",
+      companylogo: require("./assets/images/mimeda_logo.jpg"),
+      date: "August 2024 – Present",
       descBullets: [
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit",
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit"
+        "Analyzing over 15 million active customer’s behaviour from the Migros Money Card program to identify purchasing trends for Migros’ product suppliers",
+        "Creating G&L, switch, uplift, trend, profile, campaign analysis to drive data-informed strategies.",
+        "Developing automation modules to replace manual reporting processes for the Growth and Sales teams, reducing report generation time and enabling faster data-driven decision-making."
       ]
     },
     {
-      role: "Front-End Developer",
-      company: "Quora",
-      companylogo: require("./assets/images/quoraLogo.png"),
-      date: "May 2017 – May 2018",
-      desc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+      role: "Data Analyst (Ford Trucks Marketing)",
+      company: "Ford Otosan",
+      companylogo: require("./assets/images/ford-otosan-logo.png"),
+      date: "May 2022 – July 2024",
+      descBullets: [
+        "Designed and maintained interactive dashboards in Power BI and Tableau, leveraging complex SQL queries to visualize key metrics such as connectivity, customization and finance services sales. Enabled real-time decision-making for stakeholders, destroyed completely reporting delays.",
+        "Conducted and processed prediction and classification projects with Data Squad teams for enhanced project like segmented drivers based on their Ford Trucks usage parameters to reduce their fuel-cost through ConnecTruck data.",
+        "Identifying unexplored data opportunities for the business to unlock and maximize the potential of data withing the organization"
+      ]
     },
     {
-      role: "Software Engineer Intern",
-      company: "Airbnb",
-      companylogo: require("./assets/images/airbnbLogo.png"),
-      date: "Jan 2015 – Sep 2015",
-      desc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+      role: "Strategy Analyst",
+      company: "TRT (Turkish Radio and Television Corporation)",
+      companylogo: require("./assets/images/trt.png"),
+      date: "December 2020 – May 2022",
+      descBullets: [
+        "Researching and analysing the organization and the competitive landscape continuously in order to identify and evaluate threats, opportunities and new business areas",
+        "Planning, implementing, monitoring and reporting projects defined in strategic plans",
+        "Market research, competitive analysis, preliminary strategy studies, KPI determination in new projects, preparing project / strategy presentation to the Board of Directors"
+      ]
     }
   ]
 };
@@ -307,8 +274,6 @@ const achievementSection = {
 
 const blogSection = {
   title: "Blogs",
-  subtitle:
-    "With Love for Developing cool stuff, I love to write and teach others what I have learnt.",
   displayMediumBlogs: "true", // Set true to display fetched medium blogs instead of hardcoded ones
   blogs: [
     {
@@ -324,40 +289,9 @@ const blogSection = {
         "React is a JavaScript library for building User Interface. It is maintained by Facebook and a community of individual developers and companies."
     }
   ],
-  display: true // Set false to hide this section, defaults to true
+  display: false // Set false to hide this section, defaults to true
 };
 
-// Talks Sections
-
-const talkSection = {
-  title: "TALKS",
-  subtitle: emoji(
-    "I LOVE TO SHARE MY LIMITED KNOWLEDGE AND GET A SPEAKER BADGE 😅"
-  ),
-
-  talks: [
-    {
-      title: "Build Actions For Google Assistant",
-      subtitle: "Codelab at GDG DevFest Karachi 2019",
-      slides_url: "https://bit.ly/saadpasta-slides",
-      event_url: "https://www.facebook.com/events/2339906106275053/"
-    }
-  ],
-  display: true // Set false to hide this section, defaults to true
-};
-
-// Podcast Section
-
-const podcastSection = {
-  title: emoji("Podcast 🎙️"),
-  subtitle: "I LOVE TO TALK ABOUT MYSELF AND TECHNOLOGY",
-
-  // Please Provide with Your Podcast embeded Link
-  podcast: [
-    "https://anchor.fm/codevcast/embed/episodes/DevStory---Saad-Pasta-from-Karachi--Pakistan-e9givv/a-a15itvo"
-  ],
-  display: true // Set false to hide this section, defaults to true
-};
 
 // Resume Section
 const resumeSection = {
@@ -374,13 +308,6 @@ const contactInfo = {
     "Discuss a project or just want to say hi? My Inbox is open for all.",
   number: "+92-0000000000",
   email_address: "saadpasta70@gmail.com"
-};
-
-// Twitter Section
-
-const twitterDetails = {
-  userName: "twitter", //Replace "twitter" with your twitter username without @
-  display: true // Set true to display this section, defaults to false
 };
 
 const isHireable = false; // Set false if you are not looking for a job. Also isHireable will be display as Open for opportunities: Yes/No in the GitHub footer
