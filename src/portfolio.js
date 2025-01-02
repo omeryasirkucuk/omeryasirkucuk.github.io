@@ -92,7 +92,11 @@ const educationInfo = {
   schools: [
     {
       schoolName: "Istanbul Technical University",
+<<<<<<< HEAD
       logo: require("./assets/images/itu.png"),
+=======
+      logo: require("./assets/images/itu-logo-white.png"),
+>>>>>>> 431a5f85c0ea29e9e731b09c431abe9a67e48fb5
       subHeader: "Master of Science in Big Data & Business Analytics",
       duration: "September 2023 - June 2025",
       desc: "Master of Science Program with thesis that focus on data engineering and machine learning issues",
@@ -102,7 +106,11 @@ const educationInfo = {
     },
     {
       schoolName: "Istanbul Technical University",
+<<<<<<< HEAD
       logo: require("./assets/images/itu.png"),
+=======
+      logo: require("./assets/images/itu-logo-white.png"),
+>>>>>>> 431a5f85c0ea29e9e731b09c431abe9a67e48fb5
       subHeader: "Civil Engineering Bachelor's Degree",
       duration: "September 2013 - January 2019",
       desc: "Apart from the network and business perspective I gained through my part-time work and internships during my education, it was a waste of time."
@@ -146,7 +154,11 @@ const workExperiences = {
     {
       role: "Data Analyst (Ford Trucks Marketing)",
       company: "Ford Otosan",
+<<<<<<< HEAD
       companylogo: require("./assets/images/ft.png"),
+=======
+      companylogo: require("./assets/images/ford-otosan-logo.png"),
+>>>>>>> 431a5f85c0ea29e9e731b09c431abe9a67e48fb5
       date: "May 2022 – July 2024",
       descBullets: [
         "Designed and maintained interactive dashboards in Power BI and Tableau, leveraging complex SQL queries to visualize key metrics such as connectivity, customization and finance services sales. Enabled real-time decision-making for stakeholders, destroyed completely reporting delays.",
@@ -272,6 +284,7 @@ const achievementSection = {
 const blogSection = {
   title: "Blogs",
   displayMediumBlogs: "true", // Set true to display fetched medium blogs instead of hardcoded ones
+<<<<<<< HEAD
   display: true // Set false to hide this section, defaults to true
 };
 const talkSection = {
@@ -303,6 +316,25 @@ const podcastSection = {
   ],
   display: false // Set false to hide this section, defaults to true
 };
+=======
+  blogs: [
+    {
+      url: "https://blog.usejournal.com/create-a-google-assistant-action-and-win-a-google-t-shirt-and-cloud-credits-4a8d86d76eae",
+      title: "Win a Google Assistant Tshirt and $200 in Google Cloud Credits",
+      description:
+        "Do you want to win $200 and Google Assistant Tshirt by creating a Google Assistant Action in less then 30 min?"
+    },
+    {
+      url: "https://medium.com/@saadpasta/why-react-is-the-best-5a97563f423e",
+      title: "Why REACT is The Best?",
+      description:
+        "React is a JavaScript library for building User Interface. It is maintained by Facebook and a community of individual developers and companies."
+    }
+  ],
+  display: false // Set false to hide this section, defaults to true
+};
+
+>>>>>>> 431a5f85c0ea29e9e731b09c431abe9a67e48fb5
 
 // Resume Section
 const resumeSection = {
@@ -321,6 +353,7 @@ const contactInfo = {
   display: true // Set false to hide this section, defaults to true
 };
 
+<<<<<<< HEAD
 // Twitter Section
 
 const twitterDetails = {
@@ -328,6 +361,8 @@ const twitterDetails = {
   display: false // Set true to display this section, defaults to false
 };
 
+=======
+>>>>>>> 431a5f85c0ea29e9e731b09c431abe9a67e48fb5
 const isHireable = false; // Set false if you are not looking for a job. Also isHireable will be display as Open for opportunities: Yes/No in the GitHub footer
 
 export {

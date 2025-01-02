@@ -1,6 +1,10 @@
 {
   "homepage": "https://omeryasirkucuk.github.io",
+<<<<<<< HEAD
   "name": "oyk",
+=======
+  "name": "developerfolio",
+>>>>>>> 431a5f85c0ea29e9e731b09c431abe9a67e48fb5
   "version": "0.1.0",
   "private": true,
   "dependencies": {
