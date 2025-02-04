@@ -1,0 +1,474 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OLAP & DWH Technologies Comparison</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f9f9f9;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            overflow: hidden;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .header h1 {
+            font-size: 2.5em;
+            color: #333;
+        }
+
+        .table-container {
+            width: 90%;
+            height: 80%;
+            background-color: #fff;
+            border-radius: 15px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            overflow: hidden;
+            position: relative;
+            padding: 10px;
+        }
+
+        .table-wrapper {
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+
+        th {
+			background-color: #f4f4f4;
+			font-weight: bold;
+			font-size: 1.1em; /* Başlık yazı boyutunu büyütme */
+			text-align: center; /* Metni ortala */
+		}
+
+        tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+
+        tr:hover {
+            background-color: #f1f1f1;
+        }
+
+        img {
+            width: 50px;
+            height: auto;
+        }
+
+        ::-webkit-scrollbar {
+            width: 10px;
+            height: 10px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: #e0e0e0;
+            border-radius: 10px;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: #888;
+            border-radius: 10px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: #555;
+        }
+
+        .contact-button {
+            position: absolute;
+            bottom: 20px;
+            right: 20px;
+            padding: 10px 20px;
+            background-color: #007BFF;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 1em;
+            transition: background-color 0.3s ease;
+        }
+
+        .contact-button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>OLAP & DWH Technologies: A Detailed Feature Comparison</h1>
+    </div>
+    <div class="table-container">
+        <div class="table-wrapper">
+            <table>
+                <thead>
+                    <tr>
+                        <th></th>
+                        <th>Launch Year</th>
+                        <th>Database Type</th>
+                        <th>Programming Language</th>
+                        <th>Primary Use Cases</th>
+                        <th>Query Language</th>
+                        <th>Storage Format</th>
+                        <th>Self-Managed Deployment</th>
+                        <th>Fully-Managed Service</th>
+                        <th>License Type</th>
+                        <th>Supported Data Source</th>
+                        <th>Supported File Formats</th>
+                        <th>Supported Compression Types</th>
+                        <th>Pricing Model</th>
+                        <th>Supported SDKs/APIs</th>
+                        <th>Supported BI Tools</th>
+                        <th>Key Advantage</th>
+                        <th>Key Limitation</th>
+						
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                     <tr>
+						<td><img src="https://www.cdnlogo.com/logos/c/57/clickhouse.svg" alt="Clickhouse"><br>Clickhouse</td>
+						<td>2012</td>
+						<td>OLAP DB (Also defined DWH in official website)</td>
+						<td>C++</td>
+						<td>Real Time Analytics, ML / GenAI, Business Intelligence, Time Series Analytics (logs, events, traces) etc.</td>
+						<td>Clickhouse SQL</td>
+						<td>Column Oriented</td>
+						<td>On Premise / Cloud</td>
+						<td>The Company's Cloud Solution</td>
+						<td>Opensource</td>
+						<td>AWS S3, PostgreSQL, Kafka, MySQL, Cassandra, Redis, MongoDB, GCS, Hive, Hudi, Iceberg, MinIO, Delta Lake etc.</td>
+						<td>CSV, JSON, AVRO, Parquet, Arrow</td>
+						<td>ZTSD, Delta, LZ4, T64, Gorilla</td>
+						<td>Fully Managed Cloud Services -> Starts from 50$/Month</td>
+						<td>Python, PHP, Go, Swift, NodeJS, R, Java, C# etc.</td>
+						<td>Looker, Superset, Tableau, Quicksight, PowerBI</td>
+						<td>Compression</td>
+						<td>Number of Concurrent Sessions</td>
+					</tr>
+					<tr>
+						<td><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/73/Amazon-Redshift-Logo.svg/1862px-Amazon-Redshift-Logo.svg.png" alt="AWS Redshift"><br>AWS Redshift</td>
+						<td>2013</td>
+						<td>DWH</td>
+						<td>C, C++</td>
+						<td>Near Real Time Data Analytics, ML Analytics, Batch Analytics</td>
+						<td>Redshift SQL (like PostgreSQL)</td>
+						<td>Column Oriented</td>
+						<td>-</td>
+						<td>AWS Service</td>
+						<td>Proprietary</td>
+						<td>Kafka, Kinesis, Aurora, AWS RDS, AWS EMR etc.</td>
+						<td>CSV, Parquet, ORC</td>
+						<td>GZIP, BZIP2, Snappy</td>
+						<td>Starts from 0.25$/Hour</td>
+						<td>Go, Java, JavaScript, Kotlin, Python</td>
+						<td>Tableau, Looker, PowerBI, QuickSight</td>
+						<td>Strong AWS Ecosystem</td>
+						<td>Not a multi cloud solution</td>
+					</tr>
+					<tr>
+						<td><img src="https://cdn.worldvectorlogo.com/logos/google-bigquery-logo-1.svg" alt="GCP BigQuery"><br>BigQuery</td>
+						<td>2011</td>
+						<td>DWH</td>
+						<td>C++</td>
+						<td>ML, Real-Time Data Analytics</td>
+						<td>GoogleSQL (ANSI SQL)</td>
+						<td>Column Oriented</td>
+						<td>-</td>
+						<td>GCP</td>
+						<td>Proprietary</td>
+						<td>Google Cloud Storage, Bigtable, Google Sheets, Pub/Sub, On-prem dbs etc.</td>
+						<td>AVRO, CSV, JSON, ORC, Parquet, BigQuery GIS etc.</td>
+						<td>GZIP, Deflate, Snappy, ZSTD</td>
+						<td>Depends on compute and storage</td>
+						<td>C#, Go, Java, Node.js, PHP, Python, Ruby</td>
+						<td>Tableau, Looker, PowerBI, Superset, QuickSight</td>
+						<td>User Friendly GUI</td>
+						<td>Vendor lock-in</td>
+					</tr>
+					<tr>
+						<td><img src="https://companieslogo.com/img/orig/SNOW-35164165.png?t=1720244494" alt="Snowflake"><br>Snowflake</td>
+						<td>2012</td>
+						<td>DWH - OLAP DB</td>
+						<td>C++, Java</td>
+						<td>Real Time Analytics, ML, Batch Analysis etc.</td>
+						<td>Snowflake SQL (like ANSI SQL)</td>
+						<td>Column Oriented</td>
+						<td>-</td>
+						<td>Snowflake</td>
+						<td>Proprietary</td>
+						<td>S3, Azure Blob Storage, Google Cloud Storage etc.</td>
+						<td>CSV, JSON, AVRO, Parquet, ORC</td>
+						<td>Snappy, ZLIB, ZSTD, BZ2</td>
+						<td>Compute -> Starts from 2$/per credit<br>Storage -> 23$/Month per TB (AWS S3 Price)</td>
+						<td>Go, .NET, Node.js, PHP, Python</td>
+						<td>Tableau, Looker, PowerBI, Superset, QuickSight</td>
+						<td>dbt support</td>
+						<td>Slow download performance for result set</td>
+					</tr>
+					<tr>
+						<td><img src="https://plugins.jetbrains.com/files/24359/673788/icon/pluginIcon.png" alt="Databricks"><br>Databricks</td>
+						<td>2013</td>
+						<td>Lakehouse</td>
+						<td>Scala, Java, Python</td>
+						<td>All needs companies have</td>
+						<td>Databricks SQL (like ANSI SQL)</td>
+						<td>Depends on user storage choice but generally column oriented</td>
+						<td>-</td>
+						<td>Databricks, Azure Databricks</td>
+						<td>Proprietary</td>
+						<td>S3, Azure Data Lake Storage, Google Cloud Storage, Kafka</td>
+						<td>CSV, TSV, JSON, XML, Avro, ORC, Parquet etc.</td>
+						<td>Snappy, Gzip, LZO</td>
+						<td>DBU (Databricks Unit) Based Pricing<br>Starts from 0.22$/DBU</td>
+						<td>Python, R, Java, Go, Spark</td>
+						<td>Tableau, Looker, PowerBI, Superset</td>
+						<td>Medallion Architecture (Gold level acceptable DWH), QuickSight</td>
+						<td>Scala as a primary language in speed</td>
+					</tr>
+                    <tr>
+						<td><img src="https://www.clipartmax.com/png/full/200-2006484_data-warehouse-apache-druid-logo.png" alt="Apache Druid"><br>Apache Druid</td>
+						<td>2011</td>
+						<td>OLAP DB</td>
+						<td>Java</td>
+						<td>Clickstream, Network Telemetry Analytics, Server Metrics Storage, Financial, Supply Chain, Social Media Analytics etc.</td>
+						<td>Druid SQL</td>
+						<td>Column Oriented</td>
+						<td>On Premise / Cloud</td>
+						<td>Via other companies (imply)</td>
+						<td>Opensource</td>
+						<td>Kafka, Kinesis, Hadoop</td>
+						<td>JSON, CSV, TSV</td>
+						<td>LZ4, Roaring, Concise</td>
+						<td>-</td>
+						<td>Python, R, JavaScript, Clojure, Elixir, Ruby, PHP, Scala, Java, .NET, Rust</td>
+						<td>Looker, Superset</td>
+						<td>Real Time Analytics</td>
+						<td>Limited SQL Support</td>
+					</tr>
+                    <tr>
+						<td><img src="https://cdn.prod.website-files.com/625447c67b621ab49bb7e3e5/64f357d82ded908796214466_63a3188333965569ef0ea2fb_apachedoris.svg" alt="Apache Doris"><br>Apache Doris</td>
+						<td>2017</td>
+						<td>DWH</td>
+						<td>C++</td>
+						<td>Reporting, Ad-Hoc Analysis, Federated Queries, Log Processing, Data Lake Analytics</td>
+						<td>Highly Compatible with MySQL Syntax</td>
+						<td>Column Oriented</td>
+						<td>On Premise / Cloud</td>
+						<td>Via other companies (VeloDB)</td>
+						<td>Opensource</td>
+						<td>MySQL, Oracle, Kafka, HDFS, S3</td>
+						<td>Parquet, ORC, CSV, JSON</td>
+						<td>LZ4, LZ4F, LZ4HC, LSTD, Snappy, Zlib</td>
+						<td>-</td>
+						<td>Python</td>
+						<td>Superset, Tableau, QuickSight, PowerBI</td>
+						<td>High-Concurrency Query</td>
+						<td>Weak real-time writes</td>
+					</tr>
+                    <tr>
+						<td><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/bb/Apache_Hive_logo.svg/1200px-Apache_Hive_logo.svg.png" alt="Apache Hive"><br>Apache Hive</td>
+						<td>2010</td>
+						<td>DWH</td>
+						<td>Java</td>
+						<td>Batch Data Analytics</td>
+						<td>HiveQL</td>
+						<td>Column Oriented</td>
+						<td>On Premise / Cloud</td>
+						<td>Via other companies (AWS EMR)</td>
+						<td>Opensource</td>
+						<td>Azure DLS, Google Cloud Storage, S3, Hadoop, Kafka</td>
+						<td>CSV, TXT, RCFile, ORC, Parquet</td>
+						<td>Snappy, IZO, GZIP, BZIP2, Deflate, BWT</td>
+						<td>-</td>
+						<td>Python, C++, Node.js, Ruby, .NET, Go, Scala</td>
+						<td>Tableau (on EMR or Hortonworks), Looker, Superset</td>
+						<td>Hadoop Ecosystem Integration</td>
+						<td>Slow Performance (Optimized Batch Processing rather than Interactive Querying)</td>
+					</tr>
+					<tr>
+						<td><img src="https://astro-provider-logos.s3.us-east-2.amazonaws.com/apache-airflow-providers-apache-pinot.png" alt="Apache Pinot"><br>Apache Pinot</td>
+						<td>2014</td>
+						<td>OLAP DB</td>
+						<td>Java</td>
+						<td>Real Time - Batch Analytics</td>
+						<td>SQL based on Calcite</td>
+						<td>Column Oriented</td>
+						<td>On Premise / Cloud</td>
+						<td>-</td>
+						<td>Opensource</td>
+						<td>Kafka, Apache Pulsar, AWS Kinesis, Hadoop, Spark, AWS S3 etc.</td>
+						<td>CSV, AVRO, Thrift etc.</td>
+						<td>LZO, LZ4, ZSTD, Deflate, GZIP</td>
+						<td>-</td>
+						<td>Java, Python</td>
+						<td>Superset</td>
+						<td>Flexible Indexing</td>
+						<td>Limited query flexibility</td>
+					</tr>
+					<tr>
+						<td><img src="https://avatars.githubusercontent.com/u/88238841?s=280&v=4" alt="StarRocks"><br>StarRocks</td>
+						<td>2020</td>
+						<td>DWH</td>
+						<td>C++</td>
+						<td>Lakehouse Analytics, Real-Time Analytics</td>
+						<td>ANSI SQL, MySQL, Trino/Presto dialect support</td>
+						<td>Hybrid</td>
+						<td>On Premise / Cloud</td>
+						<td>-</td>
+						<td>Opensource</td>
+						<td>HDFS, AWS S3, GCP, S3-Compatible Storage Systems, Microsoft Azure Blob Storage, NFS (NAS)</td>
+						<td>Parquet, ORC, CSV</td>
+						<td>LZ4, ZTSD, ZLIB, Snappy</td>
+						<td>-</td>
+						<td>Limited Information (Python, Java, Go etc.)</td>
+						<td>Superset, Tableau</td>
+						<td>Lower Response Times (Materialized View)</td>
+						<td>Immature ecosystem</td>
+					</tr>
+					<tr>
+						<td><img src="https://duckdb.org/images/logo-dl/DuckDB_Logo-stacked-dark-mode.png" alt="DuckDB"><br>DuckDB</td>
+						<td>2019</td>
+						<td>OLAP DB</td>
+						<td>C++</td>
+						<td>Lightweight OLAP Analytics, ML Projects</td>
+						<td>PostgreSQL</td>
+						<td>Column Oriented</td>
+						<td>On Premise / Cloud</td>
+						<td>-</td>
+						<td>Opensource</td>
+						<td>S3 Buckets, Azure Blob Storage, Cloudfare R2, Delta Lake, Iceberg, MySQL, PostgreSQL, SQLite</td>
+						<td>CSV, Excel, JSON, Parquet</td>
+						<td>Snappy, LZ4, ZSTD, GZIP</td>
+						<td>-</td>
+						<td>Python, R, Java, Node.js, Rust, Go</td>
+						<td>Tableau</td>
+						<td>Embedded In Process Operation</td>
+						<td>No distributed support</td>
+					</tr>
+					<tr>
+						<td><img src="https://dbdb.io/media/logos/firebolt.png" alt="Firebolt"><br>Firebolt</td>
+						<td>2019</td>
+						<td>DWH</td>
+						<td>C++</td>
+						<td>Website Analytics, Fintech Analytics etc.</td>
+						<td>ANSI SQL</td>
+						<td>Column Oriented</td>
+						<td>-</td>
+						<td>The Company's Cloud Solution</td>
+						<td>Proprietary</td>
+						<td>Many Source (MySQL, PostgreSQL, mongoDB, snowflake, databricks, estuary) via Airflow, dbt and Airbyte.</td>
+						<td>CSV, TSV, JSON, Parquet</td>
+						<td>Snappy, GZIP</td>
+						<td>Compute -> Starts from 0.35$/Hour per FBU (Firebolt unit)<br>Storage -> 23$/Month per TB (AWS S3 Price)</td>
+						<td>Python, Node, .Net, Go. Java</td>
+						<td>Tableau, Superset, Looker</td>
+						<td>Low Latency</td>
+						<td>Closed ecosystem</td>
+					</tr>
+					<tr>
+						<td><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSGev8obd4C7siGHy__lByl93ruvjT3EZZ7MA&s" alt="Rockset"><br>Rockset</td>
+						<td>2016</td>
+						<td>OLAP DB</td>
+						<td>C++</td>
+						<td>User-Facing Analytics, Recommendations, Geospatial Search, Anomaly Detection, AI, Gaming Analytics</td>
+						<td>Rockset SQL (like PostgreSQL)</td>
+						<td>Converged Index (Row Oriented, Column Oriented, Inverted Index)</td>
+						<td>-</td>
+						<td>Available on AWS Marketplace</td>
+						<td>Proprietary</td>
+						<td>Kafka, Kinesis, DynamoDB, MongoDB, MySQL, PostgreSQL, S3, Google Cloud Storage</td>
+						<td>JSON, CSV, XML, Parquet, XLS, PDF</td>
+						<td>Snappy, GZIP, LZTD</td>
+						<td>Depends on compute and storage</td>
+						<td>Python, Java, Node.js, Go etc.</td>
+						<td>Superset</td>
+						<td>Vector usage for AI</td>
+						<td>Platform option</td>
+					</tr>
+					<tr>
+                        <td><img src="https://seeklogo.com/images/A/azure-synapse-analytics-logo-B87A556A9C-seeklogo.com.png" alt="Azure Synapse Analytics"><br>Azure Synapse Analytics</td>
+                        <td>2019</td>
+                        <td>DWH</td>
+                        <td>C++</td>
+                        <td>Real Time Analytics, ML, Batch Analysis etc.</td>
+                        <td>Synapse SQL (like T-SQL), Spark SQL</td>
+                        <td>Column Oriented</td>
+                        <td>-</td>
+                        <td>Azure Cloud</td>
+                        <td>Proprietary</td>
+                        <td>Azure Cosmos DB, Azure SQL DB, Azure Blob Storage, Cassandra, Couchbase, Drill etc.</td>
+                        <td>CSV, JSON, Parquet, ORC, TSV, TXT etc.</td>
+                        <td>Snappy, GZIP, LZO</td>
+                        <td>Depends on compute, storage and reserved period</td>
+                        <td>.NET, Python, Java, Node.js</td>
+                        <td>Tableau, Looker, PowerBI</td>
+                        <td>SQL Pool System</td>
+                        <td>-</td>
+                    </tr>
+					<tr>
+						<td><img src="https://logos-world.net/wp-content/uploads/2020/09/Oracle-Logo.png" alt="Oracle Autonomous Data Warehouse"><br>Oracle Autonomous Data Warehouse</td>
+						<td>2018</td>
+						<td>DWH</td>
+						<td>C, C++</td>
+						<td>Real Time Analytics, ML, Batch Analysis etc.</td>
+						<td>PL/SQL</td>
+						<td>Hybrid</td>
+						<td>Oracle DWH Solutions (With Exadata)</td>
+						<td>Oracle Cloud</td>
+						<td>Proprietary</td>
+						<td>Oracle Object Storage, AWS S3, Microsoft Azure Blob Storage</td>
+						<td>AVRO, CSV, JSON, Parquet, ORC, TXT</td>
+						<td>Gzip, Snappy</td>
+						<td>Differs for storage<br>Compute -> Starts from 0.336$/ECPU per hour</td>
+						<td>Java, Python, Go, etc..</td>
+						<td>Tableau, Looker, PowerBI, Superset, QuickSight</td>
+						<td>Security Features</td>
+						<td>Vendor lock-in</td>
+					</tr>
+					<tr>
+						<td><img src="https://cdn.prod.website-files.com/634a245ea4220255c5cb9dcc/6586fd5cf7582adfe5cbd6bb_terradata.png" alt="Teradata Vantage"><br>Teradata Vantage</td>
+						<td>1984</td>
+						<td>Lakehouse</td>
+						<td>C, C++</td>
+						<td>Retail analytics, big enterprise solutions, financial analytics</td>
+						<td>Teradata SQL (like ANSI SQL)</td>
+						<td>Hybrid</td>
+						<td>On Premise / Cloud</td>
+						<td>Teradata Vantage Cloud</td>
+						<td>Proprietary</td>
+						<td>S3, Azure Blob, Kafka, Iceberg, Delta Lake etc.</td>
+						<td>CSV, JSON, Parquet etc.</td>
+						<td>Snappy, ZSTD, ZLIB, LZ4, GZIP, LZO</td>
+						<td>Depends on storage, compute features</td>
+						<td>Python, R, Unity, Java, .NET</td>
+						<td>Tableau, PowerBI, Superset, QuickSight</td>
+						<td>Risk Mitigation</td>
+						<td>Cost</td>
+					</tr>
+                </tbody>
+            </table>
+        </div>	
+    </div>
+    <a href="https://omeryasirkucuk.github.io/" class="contact-button" target="_blank">Contact Me</a>	
+</body>
+</html>
