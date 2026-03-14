@@ -1,0 +1,869 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Omer Yasir Kucuk | Data Engineer</title>
+    <meta name="description" content="Data Engineer focused on scalable data pipelines, distributed data processing with Spark, and reliable data platforms.">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>OY</text></svg>">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        :root {
+            --bg: #0a0a0a;
+            --bg-card: #141414;
+            --bg-card-hover: #1a1a1a;
+            --border: #222;
+            --text: #e5e5e5;
+            --text-muted: #888;
+            --accent: #3b82f6;
+            --accent-soft: rgba(59, 130, 246, 0.1);
+            --green: #22c55e;
+            --green-soft: rgba(34, 197, 94, 0.1);
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        html {
+            scroll-behavior: smooth;
+            scrollbar-width: thin;
+            scrollbar-color: #333 transparent;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* NAV */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 100;
+            backdrop-filter: blur(20px);
+            background: rgba(10, 10, 10, 0.8);
+            border-bottom: 1px solid var(--border);
+        }
+
+        .nav-inner {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 24px;
+            height: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .nav-logo {
+            font-weight: 700;
+            font-size: 1.1rem;
+            color: var(--text);
+            text-decoration: none;
+        }
+
+        .nav-logo span { color: var(--accent); }
+
+        .nav-links {
+            display: flex;
+            gap: 32px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: var(--text-muted);
+            text-decoration: none;
+            font-size: 0.85rem;
+            font-weight: 500;
+            transition: color 0.2s;
+        }
+
+        .nav-links a:hover { color: var(--text); }
+
+        .nav-toggle {
+            display: none;
+            background: none;
+            border: none;
+            color: var(--text);
+            font-size: 1.3rem;
+            cursor: pointer;
+        }
+
+        /* LAYOUT */
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        section {
+            padding: 100px 0;
+        }
+
+        .section-label {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.75rem;
+            font-weight: 500;
+            color: var(--accent);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 12px;
+        }
+
+        .section-title {
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 48px;
+            color: var(--text);
+        }
+
+        /* HERO */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            padding-top: 60px;
+        }
+
+        .hero-content {
+            max-width: 700px;
+        }
+
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 6px 14px;
+            background: var(--green-soft);
+            border: 1px solid rgba(34, 197, 94, 0.2);
+            border-radius: 100px;
+            font-size: 0.78rem;
+            color: var(--green);
+            margin-bottom: 28px;
+        }
+
+        .hero-badge .dot {
+            width: 6px;
+            height: 6px;
+            background: var(--green);
+            border-radius: 50%;
+            animation: pulse-dot 2s infinite;
+        }
+
+        @keyframes pulse-dot {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.3; }
+        }
+
+        .hero h1 {
+            font-size: clamp(2.5rem, 5vw, 3.5rem);
+            font-weight: 700;
+            line-height: 1.15;
+            margin-bottom: 20px;
+        }
+
+        .hero h1 .gradient {
+            background: linear-gradient(135deg, var(--accent), #8b5cf6);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero-desc {
+            font-size: 1.1rem;
+            color: var(--text-muted);
+            line-height: 1.7;
+            margin-bottom: 36px;
+            max-width: 560px;
+        }
+
+        .hero-actions {
+            display: flex;
+            gap: 16px;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .btn-primary {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 12px 24px;
+            background: var(--accent);
+            color: #fff;
+            border: none;
+            border-radius: 8px;
+            font-family: inherit;
+            font-size: 0.9rem;
+            font-weight: 500;
+            cursor: pointer;
+            text-decoration: none;
+            transition: background 0.2s, transform 0.1s;
+        }
+
+        .btn-primary:hover { background: #2563eb; }
+        .btn-primary:active { transform: scale(0.98); }
+
+        .btn-secondary {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 12px 24px;
+            background: transparent;
+            color: var(--text);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            font-family: inherit;
+            font-size: 0.9rem;
+            font-weight: 500;
+            cursor: pointer;
+            text-decoration: none;
+            transition: border-color 0.2s, background 0.2s;
+        }
+
+        .btn-secondary:hover {
+            border-color: #444;
+            background: var(--bg-card);
+        }
+
+        .hero-socials {
+            display: flex;
+            gap: 16px;
+            margin-top: 40px;
+        }
+
+        .hero-socials a {
+            color: var(--text-muted);
+            font-size: 1.2rem;
+            transition: color 0.2s;
+        }
+
+        .hero-socials a:hover { color: var(--text); }
+
+        /* EXPERIENCE */
+        .timeline {
+            display: flex;
+            flex-direction: column;
+            gap: 24px;
+        }
+
+        .timeline-item {
+            display: grid;
+            grid-template-columns: 200px 1fr;
+            gap: 32px;
+            padding: 28px;
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            background: var(--bg-card);
+            transition: border-color 0.3s, background 0.3s;
+        }
+
+        .timeline-item:hover {
+            border-color: #333;
+            background: var(--bg-card-hover);
+        }
+
+        .timeline-meta {
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+        }
+
+        .timeline-date {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.78rem;
+            color: var(--text-muted);
+        }
+
+        .timeline-company {
+            font-weight: 600;
+            font-size: 0.95rem;
+            color: var(--accent);
+        }
+
+        .timeline-location {
+            font-size: 0.8rem;
+            color: var(--text-muted);
+        }
+
+        .timeline-role {
+            font-size: 1.15rem;
+            font-weight: 600;
+            margin-bottom: 12px;
+        }
+
+        .timeline-details {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .timeline-details li {
+            font-size: 0.88rem;
+            color: var(--text-muted);
+            padding-left: 16px;
+            position: relative;
+            line-height: 1.6;
+        }
+
+        .timeline-details li::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 10px;
+            width: 4px;
+            height: 4px;
+            background: var(--accent);
+            border-radius: 50%;
+        }
+
+        /* SKILLS */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+        }
+
+        .skill-card {
+            padding: 24px;
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            background: var(--bg-card);
+            transition: border-color 0.3s;
+        }
+
+        .skill-card:hover { border-color: #333; }
+
+        .skill-card-title {
+            font-size: 0.95rem;
+            font-weight: 600;
+            margin-bottom: 16px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .skill-card-title i {
+            color: var(--accent);
+            font-size: 1rem;
+        }
+
+        .skill-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+
+        .skill-tag {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.75rem;
+            padding: 5px 12px;
+            background: var(--accent-soft);
+            color: var(--accent);
+            border-radius: 6px;
+            border: 1px solid rgba(59, 130, 246, 0.15);
+        }
+
+        /* EDUCATION */
+        .edu-grid {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .edu-card {
+            padding: 24px 28px;
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            background: var(--bg-card);
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            gap: 20px;
+            transition: border-color 0.3s;
+        }
+
+        .edu-card:hover { border-color: #333; }
+
+        .edu-degree {
+            font-size: 1.05rem;
+            font-weight: 600;
+            margin-bottom: 4px;
+        }
+
+        .edu-school {
+            font-size: 0.88rem;
+            color: var(--accent);
+        }
+
+        .edu-date {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.78rem;
+            color: var(--text-muted);
+            white-space: nowrap;
+        }
+
+        .edu-note {
+            font-size: 0.8rem;
+            color: var(--text-muted);
+            font-style: italic;
+            margin-top: 4px;
+        }
+
+        /* CERTIFICATIONS */
+        .cert-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 16px;
+        }
+
+        .cert-item {
+            padding: 20px;
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            background: var(--bg-card);
+            display: flex;
+            align-items: flex-start;
+            gap: 14px;
+            transition: border-color 0.3s;
+        }
+
+        .cert-item:hover { border-color: #333; }
+
+        .cert-icon {
+            width: 36px;
+            height: 36px;
+            border-radius: 8px;
+            background: var(--accent-soft);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+
+        .cert-icon i {
+            color: var(--accent);
+            font-size: 0.9rem;
+        }
+
+        .cert-name {
+            font-size: 0.88rem;
+            font-weight: 500;
+        }
+
+        .cert-org {
+            font-size: 0.78rem;
+            color: var(--text-muted);
+            margin-top: 2px;
+        }
+
+        /* CONTACT */
+        .contact-content {
+            text-align: center;
+            max-width: 500px;
+            margin: 0 auto;
+        }
+
+        .contact-content .section-title {
+            margin-bottom: 16px;
+        }
+
+        .contact-desc {
+            color: var(--text-muted);
+            margin-bottom: 32px;
+            font-size: 0.95rem;
+        }
+
+        .contact-links {
+            display: flex;
+            justify-content: center;
+            gap: 16px;
+            flex-wrap: wrap;
+        }
+
+        .contact-links a {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 10px 20px;
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            color: var(--text);
+            text-decoration: none;
+            font-size: 0.85rem;
+            transition: border-color 0.2s, background 0.2s;
+        }
+
+        .contact-links a:hover {
+            border-color: var(--accent);
+            background: var(--accent-soft);
+        }
+
+        /* FOOTER */
+        footer {
+            padding: 40px 0;
+            border-top: 1px solid var(--border);
+            text-align: center;
+        }
+
+        footer p {
+            font-size: 0.8rem;
+            color: var(--text-muted);
+        }
+
+        /* SCROLL ANIMATION */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(24px);
+            transition: opacity 0.6s ease, transform 0.6s ease;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* RESPONSIVE */
+        @media (max-width: 768px) {
+            .nav-links { display: none; }
+            .nav-links.open {
+                display: flex;
+                flex-direction: column;
+                position: absolute;
+                top: 60px;
+                left: 0;
+                right: 0;
+                background: rgba(10, 10, 10, 0.95);
+                backdrop-filter: blur(20px);
+                padding: 20px 24px;
+                gap: 16px;
+                border-bottom: 1px solid var(--border);
+            }
+            .nav-toggle { display: block; }
+
+            section { padding: 60px 0; }
+
+            .timeline-item {
+                grid-template-columns: 1fr;
+                gap: 12px;
+            }
+
+            .edu-card {
+                flex-direction: column;
+                gap: 8px;
+            }
+
+            .hero h1 { font-size: 2rem; }
+            .section-title { font-size: 1.6rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- NAV -->
+    <nav>
+        <div class="nav-inner">
+            <a href="#" class="nav-logo">OY<span>.</span></a>
+            <button class="nav-toggle" id="navToggle" aria-label="Menu">
+                <i class="fas fa-bars"></i>
+            </button>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="#experience">Experience</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#education">Education</a></li>
+                <li><a href="#certifications">Certifications</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- HERO -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-badge">
+                    <span class="dot"></span>
+                    Senior Data Engineer at Procter & Gamble
+                </div>
+                <h1>
+                    Omer Yasir<br>
+                    <span class="gradient">Kucuk</span>
+                </h1>
+                <p class="hero-desc">
+                    Data Engineer focused on scalable data pipelines, distributed data processing with Spark, and reliable data platforms in hybrid environments. Proven track record in improving runtime efficiency, minimizing storage costs, and ensuring high-quality data.
+                </p>
+                <div class="hero-actions">
+                    <a href="mailto:omeryasirkucuk@gmail.com" class="btn-primary">
+                        <i class="fas fa-envelope"></i> Get in Touch
+                    </a>
+                    <a href="https://linkedin.com/in/omeryasirkucuk" target="_blank" class="btn-secondary">
+                        <i class="fab fa-linkedin"></i> LinkedIn
+                    </a>
+                </div>
+                <div class="hero-socials">
+                    <a href="https://github.com/omeryasirkucuk" target="_blank" aria-label="GitHub"><i class="fab fa-github"></i></a>
+                    <a href="https://linkedin.com/in/omeryasirkucuk" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                    <a href="https://medium.com/@omeryasirkucuk" target="_blank" aria-label="Medium"><i class="fab fa-medium"></i></a>
+                    <a href="https://kaggle.com/omeryasirkucuk" target="_blank" aria-label="Kaggle"><i class="fab fa-kaggle"></i></a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- EXPERIENCE -->
+    <section id="experience">
+        <div class="container">
+            <div class="fade-in">
+                <p class="section-label">// experience</p>
+                <h2 class="section-title">Where I've Worked</h2>
+            </div>
+            <div class="timeline">
+                <div class="timeline-item fade-in">
+                    <div class="timeline-meta">
+                        <span class="timeline-date">Apr 2025 &mdash; Present</span>
+                        <span class="timeline-company">Procter & Gamble</span>
+                        <span class="timeline-location">Istanbul, Turkey</span>
+                    </div>
+                    <div>
+                        <h3 class="timeline-role">Senior Data Engineer</h3>
+                        <ul class="timeline-details">
+                            <li>Implemented Lakehouse architecture using Azure Blob Storage and Unity Catalog, ensuring robust data governance, lineage tracking, and fine-grained access control &mdash; migrated 400+ Hive tables to Unity Catalog.</li>
+                            <li>Reduced storage costs by ~70% through optimized Delta Lake Time Travel retention and cleanup policies.</li>
+                            <li>Leveraged Spark and Databricks optimization techniques to improve query performance &mdash; reducing several long-running jobs from 20h+ to under 1h.</li>
+                            <li>Designed end-to-end data pipelines based on Medallion Architecture (Bronze &rarr; Silver &rarr; Gold), implementing monitoring, validation, and operational controls.</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="timeline-item fade-in">
+                    <div class="timeline-meta">
+                        <span class="timeline-date">Aug 2024 &mdash; Apr 2025</span>
+                        <span class="timeline-company">Migros &ndash; Mimeda</span>
+                        <span class="timeline-location">Istanbul, Turkey</span>
+                    </div>
+                    <div>
+                        <h3 class="timeline-role">Data Analyst</h3>
+                        <ul class="timeline-details">
+                            <li>Analyzed behavior of 15M+ customers in the Migros Money Card program using Python and Teradata SQL to identify key purchasing trends for suppliers (Unilever, P&G, Coca-Cola, Reckitt).</li>
+                            <li>Created G&L, switch, uplift, trend, profile, and campaign analyses to drive data-informed strategies.</li>
+                            <li>Developed automation modules to replace manual reporting for Growth and Sales teams, reducing report generation time.</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="timeline-item fade-in">
+                    <div class="timeline-meta">
+                        <span class="timeline-date">May 2022 &mdash; Aug 2024</span>
+                        <span class="timeline-company">Ford Otosan</span>
+                        <span class="timeline-location">Istanbul, Turkey</span>
+                    </div>
+                    <div>
+                        <h3 class="timeline-role">Data Analyst</h3>
+                        <ul class="timeline-details">
+                            <li>Designed interactive dashboards in Power BI and Tableau, leveraging SQL to visualize key metrics such as connectivity, customization, and finance services sales.</li>
+                            <li>Conducted prediction and classification projects with Data Squad teams to segment drivers based on ConnecTruck data, reducing fuel costs.</li>
+                            <li>Managed on-premises data workflows using Airflow, Hadoop, Hive, and PySpark, ensuring reliable data processing.</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="timeline-item fade-in">
+                    <div class="timeline-meta">
+                        <span class="timeline-date">Dec 2020 &mdash; May 2022</span>
+                        <span class="timeline-company">TRT</span>
+                        <span class="timeline-location">Ankara, Turkey</span>
+                    </div>
+                    <div>
+                        <h3 class="timeline-role">Strategy Analyst</h3>
+                        <ul class="timeline-details">
+                            <li>Researched and analyzed the organization and competitive landscape to identify threats, opportunities, and new business areas.</li>
+                            <li>Planned, implemented, monitored, and reported projects defined in strategic plans.</li>
+                            <li>Prepared market research, competitive analysis, and strategy presentations for the Board of Directors.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SKILLS -->
+    <section id="skills">
+        <div class="container">
+            <div class="fade-in">
+                <p class="section-label">// skills</p>
+                <h2 class="section-title">Technical Stack</h2>
+            </div>
+            <div class="skills-grid">
+                <div class="skill-card fade-in">
+                    <div class="skill-card-title">
+                        <i class="fas fa-database"></i> Big Data Processing
+                    </div>
+                    <div class="skill-tags">
+                        <span class="skill-tag">PySpark</span>
+                        <span class="skill-tag">SQL</span>
+                        <span class="skill-tag">Oracle</span>
+                        <span class="skill-tag">Teradata</span>
+                        <span class="skill-tag">Hadoop</span>
+                        <span class="skill-tag">Hive</span>
+                    </div>
+                </div>
+                <div class="skill-card fade-in">
+                    <div class="skill-card-title">
+                        <i class="fas fa-cloud"></i> Cloud & Lakehouse
+                    </div>
+                    <div class="skill-tags">
+                        <span class="skill-tag">Databricks</span>
+                        <span class="skill-tag">Azure Blob</span>
+                        <span class="skill-tag">Key Vault</span>
+                        <span class="skill-tag">Azure SQL</span>
+                        <span class="skill-tag">Data Factory</span>
+                        <span class="skill-tag">AWS S3</span>
+                        <span class="skill-tag">Athena</span>
+                        <span class="skill-tag">Glue</span>
+                        <span class="skill-tag">Redshift</span>
+                    </div>
+                </div>
+                <div class="skill-card fade-in">
+                    <div class="skill-card-title">
+                        <i class="fas fa-chart-bar"></i> Data Visualization
+                    </div>
+                    <div class="skill-tags">
+                        <span class="skill-tag">Power BI</span>
+                        <span class="skill-tag">Tableau</span>
+                    </div>
+                </div>
+                <div class="skill-card fade-in">
+                    <div class="skill-card-title">
+                        <i class="fas fa-stream"></i> ETL & Pipelines
+                    </div>
+                    <div class="skill-tags">
+                        <span class="skill-tag">AWS Glue</span>
+                        <span class="skill-tag">Airflow</span>
+                        <span class="skill-tag">Lakeflow</span>
+                        <span class="skill-tag">Azure Data Factory</span>
+                        <span class="skill-tag">Delta Lake</span>
+                        <span class="skill-tag">Unity Catalog</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- EDUCATION -->
+    <section id="education">
+        <div class="container">
+            <div class="fade-in">
+                <p class="section-label">// education</p>
+                <h2 class="section-title">Education</h2>
+            </div>
+            <div class="edu-grid">
+                <div class="edu-card fade-in">
+                    <div>
+                        <div class="edu-degree">M.Sc. in Big Data & Business Analytics</div>
+                        <div class="edu-school">Istanbul Technical University</div>
+                        <div class="edu-note">Thesis in progress</div>
+                    </div>
+                    <span class="edu-date">Sep 2023 &mdash; Present</span>
+                </div>
+                <div class="edu-card fade-in">
+                    <div>
+                        <div class="edu-degree">B.Sc. in Civil Engineering</div>
+                        <div class="edu-school">Istanbul Technical University</div>
+                    </div>
+                    <span class="edu-date">Sep 2013 &mdash; Jan 2019</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CERTIFICATIONS -->
+    <section id="certifications">
+        <div class="container">
+            <div class="fade-in">
+                <p class="section-label">// certifications</p>
+                <h2 class="section-title">Certifications & Courses</h2>
+            </div>
+            <div class="cert-grid">
+                <div class="cert-item fade-in">
+                    <div class="cert-icon"><i class="fas fa-certificate"></i></div>
+                    <div>
+                        <div class="cert-name">Certified Data Engineer Professional</div>
+                        <div class="cert-org">Databricks</div>
+                    </div>
+                </div>
+                <div class="cert-item fade-in">
+                    <div class="cert-icon"><i class="fas fa-graduation-cap"></i></div>
+                    <div>
+                        <div class="cert-name">Data Engineering with AWS</div>
+                        <div class="cert-org">Udacity Nanodegree Program</div>
+                    </div>
+                </div>
+                <div class="cert-item fade-in">
+                    <div class="cert-icon"><i class="fas fa-award"></i></div>
+                    <div>
+                        <div class="cert-name">Professional Data Engineer Track</div>
+                        <div class="cert-org">Datacamp</div>
+                    </div>
+                </div>
+                <div class="cert-item fade-in">
+                    <div class="cert-icon"><i class="fas fa-laptop-code"></i></div>
+                    <div>
+                        <div class="cert-name">Data Science & ML Bootcamp</div>
+                        <div class="cert-org">Miuul</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact">
+        <div class="container">
+            <div class="contact-content fade-in">
+                <p class="section-label">// contact</p>
+                <h2 class="section-title">Let's Connect</h2>
+                <p class="contact-desc">Feel free to reach out for collaborations, opportunities, or just to say hello.</p>
+                <div class="contact-links">
+                    <a href="mailto:omeryasirkucuk@gmail.com"><i class="fas fa-envelope"></i> Email</a>
+                    <a href="https://linkedin.com/in/omeryasirkucuk" target="_blank"><i class="fab fa-linkedin"></i> LinkedIn</a>
+                    <a href="https://github.com/omeryasirkucuk" target="_blank"><i class="fab fa-github"></i> GitHub</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="container">
+            <p>Omer Yasir Kucuk &copy; 2026</p>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile nav toggle
+        const navToggle = document.getElementById('navToggle');
+        const navLinks = document.getElementById('navLinks');
+        navToggle.addEventListener('click', () => navLinks.classList.toggle('open'));
+        navLinks.querySelectorAll('a').forEach(a => {
+            a.addEventListener('click', () => navLinks.classList.remove('open'));
+        });
+
+        // Scroll fade-in
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, { threshold: 0.1 });
+
+        document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+    </script>
+
+</body>
+</html>
