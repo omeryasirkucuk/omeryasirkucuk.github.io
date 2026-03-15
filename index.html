@@ -133,6 +133,15 @@
             max-width: 700px;
         }
 
+        .hero-photo {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 3px solid var(--border);
+            margin-bottom: 24px;
+        }
+
         .hero-badge {
             display: inline-flex;
             align-items: center;
@@ -568,7 +577,7 @@
     <!-- NAV -->
     <nav>
         <div class="nav-inner">
-            <a href="#" class="nav-logo">OY<span>.</span></a>
+            <a href="#" class="nav-logo">OYK<span>.</span></a>
             <button class="nav-toggle" id="navToggle" aria-label="Menu">
                 <i class="fas fa-bars"></i>
             </button>
@@ -586,14 +595,12 @@
     <section class="hero">
         <div class="container">
             <div class="hero-content">
+                <img src="pp.jpg" alt="Omer Yasir Kucuk" class="hero-photo">
                 <div class="hero-badge">
                     <span class="dot"></span>
                     Senior Data Engineer at Procter & Gamble
                 </div>
-                <h1>
-                    Omer Yasir<br>
-                    <span class="gradient">Kucuk</span>
-                </h1>
+                <h1>Omer Yasir <span class="gradient">Kucuk</span></h1>
                 <p class="hero-desc">
                     Data Engineer focused on scalable data pipelines, distributed data processing with Spark, and reliable data platforms in hybrid environments. Proven track record in improving runtime efficiency, minimizing storage costs, and ensuring high-quality data.
                 </p>
